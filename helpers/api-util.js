@@ -1,9 +1,14 @@
 export async function getAllEvent() {
+  var requestOptions = {
+    method: 'GET',
+  };
+
   const response = await fetch(
-    'https://cycling-events-9363e-default-rtdb.firebaseio.com/events.json'
+    'https://cycling-events-9363e-default-rtdb.firebaseio.com/events.json',
+    requestOptions
   );
 
-  const data = await response.json;
+  const data = await response.json();
 
   const events = [];
 
@@ -13,9 +18,7 @@ export async function getAllEvent() {
       ...data[key],
     });
   }
-  console.info('########################################################');
-  console.info('events', events);
-  console.info('########################################################');
+
   return events;
 }
 
