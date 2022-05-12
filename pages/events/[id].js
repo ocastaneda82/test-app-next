@@ -8,7 +8,7 @@ function EventDetailPage(props) {
   const event = props.selectedEvent;
 
   if (!event) {
-    return <p>No event found!</p>;
+    return <p>Loading...</p>;
   }
 
   return (
@@ -46,7 +46,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true, //'blocking'
   };
 }
 
